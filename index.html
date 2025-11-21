@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Theme Switcher</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            transition: background-color 0.4s ease, color 0.4s ease;
+        }
+
+        #themeBtn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+            transition: 0.3s;
+        }
+
+        #themeName {
+            margin-top: 15px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body id="page">
+    <h1>Theme Switcher Web Page</h1>
+    <p>This page changes theme dynamically using JavaScript DOM manipulation.</p>
+
+    <button id="themeBtn">Change Theme</button>
+    <div id="themeName">Light Mode</div>
+
+    <script>
+        const page = document.getElementById("page");
+        const themeBtn = document.getElementById("themeBtn");
+        const themeName = document.getElementById("themeName");
+
+        let isDark = false; // Light mode by default
+
+        themeBtn.addEventListener("click", function () {
+            if (isDark) {
+                // Switch to Light Mode
+                page.style.backgroundColor = "white";
+                page.style.color = "black";
+                page.style.fontFamily = "Arial, sans-serif";
+                themeName.textContent = "Light Mode";
+                isDark = false;
+            } else {
+                // Switch to Dark Mode
+                page.style.backgroundColor = "black";
+                page.style.color = "white";
+                page.style.fontFamily = "Courier New, monospace";
+                themeName.textContent = "Dark Mode";
+                isDark = true;
+            }
+        });
+    </script>
+</body>
+</html>
